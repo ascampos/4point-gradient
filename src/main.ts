@@ -10,17 +10,17 @@ const app = new PIXI.Application({
 
 document.getElementById('app')!.appendChild(app.view as HTMLCanvasElement);
 
-// Create gradient matching After Effects reference
+// Create gradient matching After Effects reference (tuned positions + blend)
 const gradient = new FourPointGradient({
     width: window.innerWidth,
     height: window.innerHeight,
     points: [
-        { position: [0.2, 0.2], color: 0xFFFF00 }, // Yellow
-        { position: [0.8, 0.2], color: 0x00FF00 }, // Green
-        { position: [0.8, 0.8], color: 0x0000FF }, // Blue
-        { position: [0.2, 0.8], color: 0xFF00FF }  // Magenta
+        { position: [0.1, 0.1], color: 0xFFFF00 }, // Yellow
+        { position: [0.9, 0.1], color: 0x00FF00 }, // Green
+        { position: [0.9, 0.9], color: 0x0000FF }, // Blue
+        { position: [0.1, 0.9], color: 0xFF00FF }  // Magenta
     ],
-    blend: 0.5
+    blend: 0.3
 });
 
 app.stage.addChild(gradient);

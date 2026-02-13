@@ -12,12 +12,12 @@ export class FourPointGradient extends PIXI.Mesh<PIXI.Shader> {
             width = 800,
             height = 600,
             points = [
-                { position: [0.2, 0.2], color: 0xFFFF00 }, // Yellow - top left
-                { position: [0.8, 0.2], color: 0x00FF00 }, // Green - top right
-                { position: [0.8, 0.8], color: 0x0000FF }, // Blue - bottom right
-                { position: [0.2, 0.8], color: 0xFF00FF }  // Magenta - bottom left
+                { position: [0.1, 0.1], color: 0xFFFF00 }, // Yellow - top left
+                { position: [0.9, 0.1], color: 0x00FF00 }, // Green - top right
+                { position: [0.9, 0.9], color: 0x0000FF }, // Blue - bottom right
+                { position: [0.1, 0.9], color: 0xFF00FF }  // Magenta - bottom left
             ],
-            blend = 0.5
+            blend = 0.3
         } = options;
 
         // Create geometry (simple quad)
