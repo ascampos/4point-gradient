@@ -35,5 +35,7 @@ window.addEventListener('resize', () => {
     gradient.resize(window.innerWidth, window.innerHeight);
 });
 
-// Console debugging
-(window as any).gradient = gradient;
+// Debug access in development
+if (import.meta.env.DEV) {
+    (window as any).gradient = gradient;
+}
