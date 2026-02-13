@@ -54,7 +54,19 @@
             z-index: 100;
         }
         
+        .controls.collapsed {
+            transform: translateX(calc(100% + 40px));
+        }
+        
+        .controls-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
         .controls h2 {
+            margin: 0;
             margin: 0 0 20px 0;
             font-size: 18px;
             font-weight: 600;
@@ -180,6 +192,40 @@
             background: transparent;
         }
         
+        .panel-toggle-btn,
+        .panel-show-btn {
+            width: 28px;
+            height: 28px;
+            padding: 0;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background: #2a2a2a;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .panel-toggle-btn:hover,
+        .panel-show-btn:hover {
+            background: #333;
+            border-color: #666;
+        }
+        
+        .panel-show-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 99;
+            display: none;
+        }
+        
+        .panel-show-btn.visible {
+            display: flex;
+        }
+        
         @media (max-width: 768px) {
             .controls {
                 top: auto;
@@ -195,8 +241,11 @@
 <body>
     <div id="app"></div>
     
-    <div class="controls">
-        <h2>Gradient Controls</h2>
+    <div class="controls" id="controls-panel">
+        <div class="controls-header">
+            <h2>Gradient Controls</h2>
+            <button type="button" class="panel-toggle-btn" id="panel-toggle" title="Hide panel (h)">◀</button>
+        </div>
         
         <div class="preset-buttons">
             <button data-preset="afterEffects" class="active">After Effects</button>
@@ -218,6 +267,8 @@
             <div id="color-controls"></div>
         </details>
     </div>
+    
+    <button type="button" class="panel-show-btn" id="panel-show" title="Show panel (h)">▶</button>
     
     <script type="module" src="/src/main.ts"></script>
 </body>

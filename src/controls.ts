@@ -65,7 +65,23 @@ export class GradientControls {
         this.setupBlendControl();
         this.setupPresetButtons();
         this.setupColorControls();
+        this.setupPanelToggle();
         this.setupKeyboardShortcuts();
+    }
+
+    private setupPanelToggle(): void {
+        const panel = document.getElementById('controls-panel');
+        const toggleBtn = document.getElementById('panel-toggle');
+        const showBtn = document.getElementById('panel-show');
+        if (!panel || !toggleBtn || !showBtn) return;
+
+        const toggle = () => {
+            const isCollapsed = panel.classList.toggle('collapsed');
+            showBtn.classList.toggle('visible', isCollapsed);
+        };
+
+        toggleBtn.addEventListener('click', toggle);
+        showBtn.addEventListener('click', toggle);
     }
 
     private setupBlendControl(): void {
@@ -120,6 +136,15 @@ export class GradientControls {
 
     private setupKeyboardShortcuts(): void {
         document.addEventListener('keydown', (e) => {
+            if (e.key === 'h' || e.key === 'H') {
+                const panel = document.getElementById('controls-panel');
+                const showBtn = document.getElementById('panel-show');
+                if (panel && showBtn) {
+                    const isCollapsed = panel.classList.toggle('collapsed');
+                    showBtn.classList.toggle('visible', isCollapsed);
+                }
+                return;
+            }
             if (e.key >= '1' && e.key <= '4') {
                 const presetNames = ['afterEffects', 'sunset', 'ocean', 'fire'];
                 const index = parseInt(e.key) - 1;
