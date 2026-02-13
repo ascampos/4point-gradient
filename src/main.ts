@@ -1,2 +1,29 @@
-// Pixi app initialization - Phase 3
-console.log('4-point gradient shader - Phase 1 ready');
+import * as PIXI from 'pixi.js';
+import { FourPointGradient } from './FourPointGradient';
+
+const app = new PIXI.Application({
+    width: 800,
+    height: 600,
+    backgroundColor: 0x1a1a1a,
+    antialias: true
+});
+
+document.getElementById('app')!.appendChild(app.view as HTMLCanvasElement);
+
+// Create gradient matching After Effects reference
+const gradient = new FourPointGradient({
+    width: 800,
+    height: 600,
+    points: [
+        { position: [0.2, 0.2], color: 0xFFFF00 }, // Yellow
+        { position: [0.8, 0.2], color: 0x00FF00 }, // Green
+        { position: [0.8, 0.8], color: 0x0000FF }, // Blue
+        { position: [0.2, 0.8], color: 0xFF00FF }  // Magenta
+    ],
+    blend: 0.5
+});
+
+app.stage.addChild(gradient);
+
+// Optional: Add interactive controls for testing
+(window as any).gradient = gradient; // For console debugging
