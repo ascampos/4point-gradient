@@ -25,5 +25,11 @@ const gradient = new FourPointGradient({
 
 app.stage.addChild(gradient);
 
-// Optional: Add interactive controls for testing
-(window as any).gradient = gradient; // For console debugging
+// Handle window resize
+window.addEventListener('resize', () => {
+    app.renderer.resize(window.innerWidth, window.innerHeight);
+    gradient.resize(window.innerWidth, window.innerHeight);
+});
+
+// Console debugging
+(window as any).gradient = gradient;
