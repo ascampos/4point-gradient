@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { FourPointGradient } from './FourPointGradient';
+import { GradientControls } from './controls';
 
 const app = new PIXI.Application({
     width: window.innerWidth,
@@ -24,6 +25,9 @@ const gradient = new FourPointGradient({
 });
 
 app.stage.addChild(gradient);
+
+// Initialize interactive controls
+new GradientControls(gradient);
 
 // Handle window resize
 window.addEventListener('resize', () => {
