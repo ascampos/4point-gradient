@@ -1,6 +1,6 @@
 # Four-Point Gradient Shader for Pixi.js
 
-🎨 **[Live Demo](https://4point-gradient.arturo.dev)**
+> 🎨 **Live Demo:** [https://4point-gradient.arturo.dev](https://4point-gradient.arturo.dev)
 
 WebGL implementation of Adobe After Effects' 4-Point Gradient effect using custom GLSL shaders and Pixi.js.
 
