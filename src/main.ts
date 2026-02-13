@@ -2,8 +2,8 @@ import * as PIXI from 'pixi.js';
 import { FourPointGradient } from './FourPointGradient';
 
 const app = new PIXI.Application({
-    width: 800,
-    height: 600,
+    width: window.innerWidth,
+    height: window.innerHeight,
     backgroundColor: 0x1a1a1a,
     antialias: true
 });
@@ -12,8 +12,8 @@ document.getElementById('app')!.appendChild(app.view as HTMLCanvasElement);
 
 // Create gradient matching After Effects reference
 const gradient = new FourPointGradient({
-    width: 800,
-    height: 600,
+    width: window.innerWidth,
+    height: window.innerHeight,
     points: [
         { position: [0.2, 0.2], color: 0xFFFF00 }, // Yellow
         { position: [0.8, 0.2], color: 0x00FF00 }, // Green
